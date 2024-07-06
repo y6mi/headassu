@@ -32,18 +32,10 @@
             z-index: 2;
         }
 
-        .section1 {
+        .section1, .section2, .section3, .section4 {
             height: 100vh;
         }
-        .section2 {
-            height: 100vh;
-        }
-        .section3 {
-            height: 100vh;
-        }
-        .section4 {
-            height: 200vh;
-        }
+
         .section .background {
             position: absolute;
             top: 0;
@@ -61,106 +53,60 @@
         .section2 .background {
             background: url('https://lh3.googleusercontent.com/pw/AP1GczNyenOL9ZZHEsCNL-Y4wKfjaey_Oyp-XFj4y7WUbneW3bno3YFTlfS95Wb88sWaYJFWUjXVoFv-_mt2OLP8AFUKIfpLmAkvUT5MAc1a5J2HilV4hA=w2400') no-repeat center center/cover;
         }
-       
+
         .section3 .background {
             background: url('https://lh3.googleusercontent.com/pw/AP1GczP06DCDgU83oHn_QTeWMcJLr1gZFYysLYQtdLw55P81jIXDPmrI35DV2PuWQzXcJgAEz5f24w-VFZlFvWK6AekPBNX2oo3b1sBMLY_yn7YY6jMN8g=w2400') no-repeat center center/cover;
         }
+
         .section4 .background {
             background: url('https://lh3.googleusercontent.com/pw/AP1GczMZPfivBjvWAj6HxGN9uh8VvYlinptGGwJpsyhBU-yoYDwC9MVJ4242nB-c21yut9ad71oFN9js-GRmaqwYpBgVROuzuAiaG5YUD3BZFvhRRJ3cDQ=w2400') no-repeat center center/cover;
-        }
-
-        /* Optional: Add smooth scrolling */
-        html {
-            scroll-behavior: smooth;
         }
 
         .flex-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-wrap: wrap; /* Allows the buttons to wrap if there's not enough space */
-            gap: 20px; /* Space between the buttons */
-            height: 100%; /* Ensure the container takes the full height of the section */
+            flex-wrap: wrap;
+            gap: 20px;
+            height: 100%;
+        }
+
+        .vertical-button, .video-button {
+            display: inline-block;
+            background-color: #444;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border: 2px solid transparent;
+            position: relative;
+            transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s, margin 0.3s;
+            overflow: hidden;
         }
 
         .vertical-button {
-            display: inline-block;
             width: 180px;
             height: 320px;
-            background-color: #444;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border: 2px solid transparent;
-            position: relative;
-            transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s, margin 0.3s; /* Added margin transition */
-            overflow: hidden;
-        }
-
-        .vertical-button:hover {
-            border-color: white;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Outer glow effect */
-            margin: 10px;
-            transform: scale(1.05); /* Scale effect on hover */
-        }
-
-        .vertical-button img {
-            width: 100%;
-            height: calc(100% - 20px); /* Leave space for the text at the bottom */
-            object-fit: cover;
-        }
-
-        .vertical-button span {
-            display: block;
-            width: 100%;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            height: 20px;
-            line-height: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-
-        .vertical-button .middle-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 16px;
-            background-color: rgba(0, 0, 0, 0.5); /* Optional: add background for readability */
-            padding: 5px;
-            border-radius: 5px;        
         }
 
         .video-button {
-            display: inline-block;
             width: 480px;
             height: 270px;
-            background-color: #444;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border: 2px solid transparent;
-            position: relative;
-            transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s, margin 0.3s; /* Added margin transition */
-            overflow: hidden;
         }
 
-        .video-button:hover {
+        .vertical-button:hover, .video-button:hover {
             border-color: white;
-            box-shadow: 0 0 40px rgba(255, 255, 255, 0.5); /* Outer glow effect */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
             margin: 10px;
-            transform: scale(1.05); /* Scale effect on hover */
+            transform: scale(1.05);
         }
 
-        .video-button img {
+        .vertical-button img, .video-button img {
             width: 100%;
-            height: calc(100% - 20px); /* Leave space for the text at the bottom */
+            height: calc(100% - 20px);
             object-fit: cover;
         }
 
-        .video-button span {
+        .vertical-button span, .video-button span {
             display: block;
             width: 100%;
             position: absolute;
@@ -171,18 +117,17 @@
             background-color: rgba(0, 0, 0, 0.7);
         }
 
-        .video-button .middle-text {
+        .vertical-button .middle-text, .video-button .middle-text {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             color: white;
             font-size: 16px;
-            background-color: rgba(0, 0, 0, 0.5); /* Optional: add background for readability */
+            background-color: rgba(0, 0, 0, 0.5);
             padding: 5px;
-            border-radius: 5px;        
+            border-radius: 5px;
         }
-
     </style>
 </head>
 <body>
@@ -211,12 +156,12 @@
                     <span>Read</span>
                 </a>
                 <a href="https://www.instagram.com/headass_u" class="vertical-button" target="_blank">
-                    <img src="https://yt3.googleusercontent.com/3FtUy4lBhGD-pMc400MeqQF6Q1MZsmRdqrNuGhY1aVQhS_6n4fmF6mbvqChA9hUY0P4HqpFJZA=s160-c-k-c0x00ffffff-no-rj" alt="Example Preview">
+                    <img src="https://yt3.googleusercontent.com/3FtUy4lBhGD-pMc400MeqQF6Q1MZsmRdqrNuGhY1aVQhS_6n4fmF6mbvqChA9hUY0P4HqpFJZA=s160-c-k-c0x00ffffff-no-rj" alt="Instagram Preview">
                     <div class="middle-text">My Instagram!</div>
                     <span>Open</span>
                 </a>
                 <a href="https://www.youtube.com/channel/UCev8l4rLrmuGhRuMRIjI3HQ" class="vertical-button" target="_blank">
-                    <img src="https://yt3.googleusercontent.com/3FtUy4lBhGD-pMc400MeqQF6Q1MZsmRdqrNuGhY1aVQhS_6n4fmF6mbvqChA9hUY0P4HqpFJZA=s160-c-k-c0x00ffffff-no-rj" alt="Example Preview">
+                    <img src="https://yt3.googleusercontent.com/3FtUy4lBhGD-pMc400MeqQF6Q1MZsmRdqrNuGhY1aVQhS_6n4fmF6mbvqChA9hUY0P4HqpFJZA=s160-c-k-c0x00ffffff-no-rj" alt="YouTube Preview">
                     <div class="middle-text">My YouTube!</div>
                     <span>Open</span>
                 </a>
@@ -230,58 +175,10 @@
             <p>Watch Headass U Music Videos on Youtube!</p>
             <div class="flex-container">
                 <a href="https://www.youtube.com/watch?v=7PS1DnP9MI0" class="video-button" target="_blank">
-                    <img src="https://i.ytimg.com/vi/7PS1DnP9MI0/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCqNWNItpBUjJOk0_rFYKai4n3nkA" alt="One Tree Hill Video">
+                    <img src="https://i.ytimg.com/vi/7PS1DnP9MI0/hqdefault.jpg" alt="One Tree Hill Video">
                     <div class="middle-text">One Tree Hill Music Video</div>
                     <span>Watch</span>
                 </a>
                 <a href="https://www.youtube.com/watch?v=hQve_6i4DrE" class="video-button" target="_blank">
-                    <img src="https://i.ytimg.com/vi/hQve_6i4DrE/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDZFhgc27Ocp-Xw8dbX4O5EuqZH9A" alt="Flip Video">
-                    <div class="middle-text">FLIP Music Video</div>
-                    <span>Watch</span>
-                </a>
-                <a href="https://www.youtube.com/watch?v=cRHoDmGgOdY" class="video-button" target="_blank">
-                    <img src="https://i.ytimg.com/vi/cRHoDmGgOdY/hqdefault.jpg?sqp=-oaymwE2CNACELwBSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARg7IGUoSTAP&rs=AOn4CLAqjq6NQxW1XZFGnF1mID-IuT2-mw" alt="Snake Oil Visualizer Video">
-                    <div class="middle-text">Snake Oil Visualizer</div>
-                    <span>Watch</span>
-                </a>
-                <a href="https://www.youtube.com/watch?v=N-bWfKU-lpE" class="video-button" target="_blank">
-                    <img src="https://i.ytimg.com/vi/N-bWfKU-lpE/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDGU1_l9Te7r7zkq1GqWPAym5kUIg" alt="Sink Freestyle Lyric Video">
-                    <div class="middle-text">Sync Freestyle Lyric Video</div>
-                    <span>Watch</span>
-                </a>
-                <a href="https://www.youtube.com/watch?v=DaLy7s9LRcM" class="video-button" target="_blank">
-                    <img src="https://i.ytimg.com/vi/DaLy7s9LRcM/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDs_r7AIw2Xjlh4C7JzAZnhwY22VQ" alt="Nothing Left to Say Music Video">
-                    <div class="middle-text">Nothing Left to Say Music Video</div>
-                    <span>Watch</span>
-                </a>
-                <a href="https://www.youtube.com/watch?v=sut04iSm9yY" class="video-button" target="_blank">
-                    <img src="https://i.ytimg.com/vi/sut04iSm9yY/hqdefault.jpg?sqp=-oaymwE2CNACELwBSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhlIGUoZTAP&rs=AOn4CLDzqgouCE6YquxfZFnbBdwLqdVlDg" alt="Tell-Tale Heart Music Video">
-                    <div class="middle-text">Tell-Tale Heart Music Video</div>
-                    <span>Watch</span>
-                </a>
-                <a href="https://www.youtube.com/watch?v=P5gml9nFlls" class="video-button" target="_blank">
-                    <img src="https://i.ytimg.com/vi/P5gml9nFlls/hqdefault.jpg?sqp=-oaymwE2CNACELwBSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhaIGIoZTAP&rs=AOn4CLDuNGskSU6KS1yy0tWFcdi_mspxQw" alt="5Hundred Music Video">
-                    <div class="middle-text">5Hundred Music Video</div>
-                    <span>Watch</span>
-                </a>
-                <a href="https://www.youtube.com/watch?v=wGCJ6EBCMeE" class="video-button" target="_blank">
-                    <img src="https://i.ytimg.com/vi/wGCJ6EBCMeE/hqdefault.jpg?sqp=-oaymwE2CNACELwBSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhlIFooTTAP&rs=AOn4CLBhFybTuoBMEgDKJfjoo-Os_LOIng" alt="The Alchemist Visualizer Video">
-                    <div class="middle-text">The Alchemist Visualizer Video</div>
-                    <span>Watch</span>
-                </a>
-                <a href="https://www.youtube.com/watch?v=DPIJOU6eKXg" class="video-button" target="_blank">
-                    <img src="https://i.ytimg.com/vi/DPIJOU6eKXg/hqdefault.jpg?sqp=-oaymwE2CNACELwBSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhlIEgoTzAP&rs=AOn4CLAhhPUgrvc-71PH8It5ZiGexrnG9A" alt="Anthem Visualizer Video">
-                    <div class="middle-text">Anthem Visualizer Video</div>
-                    <span>Watch</span>
-                </a>
-                <a href="https://www.youtube.com/watch?v=n4hVxE5xomg" class="video-button" target="_blank">
-                    <img src="https://i.ytimg.com/vi/n4hVxE5xomg/hqdefault.jpg?sqp=-oaymwE2CNACELwBSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARgTIBMofzAP&rs=AOn4CLAs4WGqnxyZBjsxln1SfetTAW7-9g" alt="W.W.S.D. Music Video">
-                    <div class="middle-text">W.W.S.D. Video</div>
-                    <span>Watch</span>
-                </a>
-
-        </div>
-    </div>
-</body>
-</html>
-
+                    <img src="https://i.ytimg.com/vi/hQve_6i4DrE/hqdefault.jpg" alt="Flip Video">
+                    <div class="middle-text">FLIP Music Video
